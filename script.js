@@ -1,7 +1,7 @@
 const characters = [
-    { id: "workaholic", name: "Workaholic", img: "images/workaholic.png", fallback: "💼" },
-    { id: "shopaholic", name: "Shopaholic", img: "images/shopaholic.png", fallback: "🛍️" },
-    { id: "adventurer", name: "Adventurer", img: "images/adventurer.png", fallback: "🗺️" },
+    { id: "workaholic", name: "Workaholic", img: "/images/workaholic.png", fallback: "💼" },
+    { id: "shopaholic", name: "Shopaholic", img: "/images/shopaholic.png", fallback: "🛍️" },
+    { id: "adventurer", name: "Adventurer", img: "/images/adventurer.png", fallback: "🗺️" },
     { id: "drifter", name: "Drifter", img: "images/drifter.png", fallback: "🌾" },
     { id: "senior", name: "Senior", img: "images/senior.png", fallback: "👴" },
     { id: "scavenger", name: "Scavenger", img: "images/scavenger.png", fallback: "🗑️" },
