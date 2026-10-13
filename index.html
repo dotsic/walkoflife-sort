@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk of Life - Sorteio de Personagens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="header-title">
+        <h1 class="logo-text wiggle">WALK OF LIFE</h1>
+        <div class="subtitle">SORTEADOR DE PERSONAGENS</div>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="controls-bar">
+            <button class="btn-draw" id="btn-draw" onclick="sortear()">SORTEAR!</button>
+            <button class="btn-reset" onclick="resetarTudo()">REINICIAR TUDO</button>
+            <div class="counter-badge">
+                Disponíveis: <span id="count-available" style="color: #00c853;">9</span> / 9
+            </div>
+        </div>
+
+        <div class="history-box">
+            <h4 class="history-title">HISTÓRICO DE SELEÇÃO</h4>
+            <div id="history-container" class="history-list">
+                <span class="history-empty">Nenhum personagem sorteado ainda.</span>
+            </div>
+        </div>
+
+        <div class="grid-container" id="grid">
+            <!-- Cards gerados via JS -->
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
