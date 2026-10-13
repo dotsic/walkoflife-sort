@@ -1,13 +1,13 @@
 const characters = [
-    { id: "workaholic", name: "Workaholic", img: "./images/Workaholic.png", fallback: "💼" },
-    { id: "shopaholic", name: "Shopaholic", img: "/images/Shopaholic.png", fallback: "🛍️" },
-    { id: "adventurer", name: "Adventurer", img: "./images/adventurer.png", fallback: "🗺️" },
-    { id: "drifter", name: "Drifter", img: "images/drifter.png", fallback: "🌾" },
+    { id: "workaholic", name: "Workaholic", img: "images/Workaholic.png", fallback: "💼" },
+    { id: "shopaholic", name: "Shopaholic", img: "images/Shopaholic.png", fallback: "🛍️" },
+    { id: "adventurer", name: "Adventurer", img: "images/Adventurer.png", fallback: "🗺️" },
+    { id: "drifter", name: "Drifter", img: "images/Drifter.png", fallback: "🌾" },
     { id: "senior", name: "Senior", img: "images/Senior.png", fallback: "👴" },
-    { id: "scavenger", name: "Scavenger", img: "images/scavenger.png", fallback: "🗑️" },
-    { id: "mystic", name: "Mystic", img: "images/mystic.png", fallback: "🧘" },
-    { id: "hacker", name: "Hacker", img: "images/hacker.png", fallback: "💻" },
-    { id: "artist", name: "Artist", img: "images/artist.png", fallback: "🎨" }
+    { id: "scavenger", name: "Scavenger", img: "images/Scavenger.png", fallback: "🗑️" },
+    { id: "mystic", name: "Mystic", img: "images/Mystic.png", fallback: "🧘" },
+    { id: "hacker", name: "Hacker", img: "images/Hacker.png", fallback: "💻" },
+    { id: "artist", name: "Artist", img: "images/Artist.png", fallback: "🎨" }
 ];
 
 let state = {};
