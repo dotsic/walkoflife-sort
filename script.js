@@ -12,13 +12,41 @@ const characters = [
 
 let state = {};
 let historyList = [];
-
-characters.forEach(c => {
-    state[c.id] = { drawn: false, locked: false };
-});
-
 let isDrawing = false;
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+function saveState() {
+    const dataToSave = {
+        state: state,
+        historyIds: historyList.map(item => item.id)
+    };
+    localStorage.setItem('walkOfLife_save', JSON.stringify(dataToSave));
+}
+
+function loadState() {
+    const savedData = localStorage.getItem('walkOfLife_save');
+    if (savedData) {
+        try {
+            const parsed = JSON.parse(savedData);
+            state = parsed.state;
+            historyList = parsed.historyIds.map(id => characters.find(c => c.id === id)).filter(Boolean);
+            return true;
+        } catch (e) {
+            console.error("Error loading saved state:", e);
+        }
+    }
+    return false;
+}
+
+function initializeState() {
+    const hasData = loadState();
+    if (!hasData) {
+        characters.forEach(c => {
+            state[c.id] = { drawn: false, locked: false };
+        });
+        historyList = [];
+    }
+}
 
 function playBeep(freq = 440, duration = 0.05) {
     try {
@@ -76,7 +104,7 @@ function renderGrid() {
             <div class="stamp-drawn">FORA!</div>
             <div class="card-inner-bg">
                 <img class="card-img" src="${char.img}" alt="${char.name}" 
-                     onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\\'placeholder-icon\\'>${char.fallback}</span>';">
+                    onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\\'placeholder-icon\\'>${char.fallback}</span>';">
             </div>
             <div class="card-title-box">
                 <h3 class="card-title">${char.name}</h3>
@@ -116,6 +144,7 @@ function toggleLock(id) {
         state[id].locked = !state[id].locked;
     }
     playBeep(state[id].locked ? 220 : 587, 0.06);
+    saveState();
     renderGrid();
 }
 
@@ -160,6 +189,7 @@ function sortear() {
 
             state[chosen.id].drawn = true;
             historyList.push(chosen);
+            saveState();
 
             playWinSound();
 
@@ -183,6 +213,7 @@ function sortear() {
 
 function resetarTudo() {
     if (isDrawing) return;
+    localStorage.removeItem('walkOfLife_save');
     characters.forEach(c => {
         state[c.id] = { drawn: false, locked: false };
     });
@@ -191,4 +222,5 @@ function resetarTudo() {
     renderGrid();
 }
 
+initializeState();
 renderGrid();
